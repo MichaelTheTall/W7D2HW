@@ -23,8 +23,12 @@ InfoView.prototype.render = function(family){
   infoParagraph.textContent = family.description;
   this.container.appendChild(infoParagraph);
 
-  const infoInstruments = document.createElement('li');
-  infoInstruments.textContent = family.instruments;
+  const infoInstruments = document.createElement('ul');
+  family.instruments.forEach((i) => {
+    const list = document.createElement('li');
+    list.textContent = i;
+    infoInstruments.appendChild(list);
+  })
   this.container.appendChild(infoInstruments);
 
 };
